@@ -2,13 +2,19 @@ const express = require('express');
 const morgan = require('morgan');
 const helmet = require('helmet');
 const cors = require('cors');
+const mongoose = require('mongoose');
+require('dotenv').config();
 
-const middlwares = require('middlewares');
+const middlewares = require('middlewares');
+
+const url = mongoose.connect(process.env.DATABASE_URL, {
+  useNewUrlParser: true,
+});
 
 const app = express();
 app.use(morgan('common'));
 app.use(helmet());
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors({ origin: process.env.CORS_ORIGIN }));
 
 app.get('/', (req, res) => {
   res.json({
