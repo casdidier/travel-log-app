@@ -30,3 +30,4 @@ TODO
 - [x]  Create Form to add a new entry
 - [x]  Setup Map SDK on client
 - [x] List all log entries on map
+- [ ] convert everything in Typescript
